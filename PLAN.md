@@ -15,8 +15,9 @@ x- Router and routes
 x- Create component and attach to the router.
 x- Set up the store
 
-- Set up homepage and thunk action to GET products.
-- Render products with an `add to cart` button
+x- Set up homepage and thunk action to GET products.
+x- Render products with an `add to cart` button
+
 - Shopping cart logic in redux - add and remove products. (Goal 1). //[{}, {}, {}] => state.products || state.cart
 
 Cart, what shape do we set it up?
