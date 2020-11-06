@@ -3,9 +3,11 @@ const initialState = {
 };
 
 export default function productsReducer(state = initialState, action) {
+  // console.log("PAYLOAD PRODUCTS:", action.payload);
+
   switch (action.type) {
-    case "ADD_PRODUCT": {
-      return { ...state, all: [...state.all, action.payload] };
+    case "ADD_PRODUCTS": {
+      return { ...state, all: [...state.all, ...action.payload] };
     }
 
     default: {
