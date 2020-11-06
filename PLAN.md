@@ -18,13 +18,13 @@ x- Set up the store
 x- Set up homepage and thunk action to GET products.
 x- Render products with an `add to cart` button
 
-- Shopping cart logic in redux - add and remove products. (Goal 1). //[{}, {}, {}] => state.products || state.cart
+x - Shopping cart logic in redux - add and remove products. (Goal 1). //[{}, {}, {}] => state.products || state.cart
 
-Cart, what shape do we set it up?
+<!-- Cart, what shape do we set it up?
 
 => [{p}, {p}, {p}] => array of products.
 => [1, 3, 5] => array of productIds || [1,1,1,3,5];
-\*\* => [{ productId, quantity}, {pId, quantity}]; => The one I like the most.
+\*\* => [{ productId, quantity}, {pId, quantity}]; => The one I like the most. -->
 
 Add a product:
 => Be already in the cart. => increase quantity + 1

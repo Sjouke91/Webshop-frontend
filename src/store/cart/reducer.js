@@ -4,8 +4,31 @@ const initialState = {
 
 export default function cartReducer(state = initialState, action) {
   console.log("payloadcart", action.payload);
+
   switch (action.type) {
     case "ADD_TO_CART": {
+      const specificProduct = state.all.find((p) => {
+        return p.productId === action.payload;
+      });
+
+      if (!specificProduct) {
+        return {
+          ...state,
+          all: [...state.all, { productId: action.payload, quantity: 1 }],
+        };
+      }
+      const allProductsMinusFind = state.all.filter((p) => {
+        return p.productId !== action.payload;
+      });
+      const addProduct = {
+        ...specificProduct,
+        quantity: specificProduct.quantity + 1,
+      };
+
+      return { ...state, all: [...allProductsMinusFind, addProduct] };
+    }
+
+    case "REMOVE_FROM_CART": {
       const specificProduct = state.all.find((p) => {
         return p.productId === action.payload;
       });
@@ -15,18 +38,19 @@ export default function cartReducer(state = initialState, action) {
         return p.productId !== action.payload;
       });
 
-      if (!specificProduct) {
+      if (specificProduct.quantity === 1) {
         return {
           ...state,
-          all: [...state.all, { productId: action.payload, quantity: 1 }],
+          all: allProductsMinusFind,
         };
       }
-      const addProduct = {
+
+      const removeProduct = {
         ...specificProduct,
-        quantity: specificProduct.quantity + 1,
+        quantity: specificProduct.quantity - 1,
       };
-      console.log("productToAdd", addProduct);
-      return { ...state, all: [...allProductsMinusFind, addProduct] };
+      console.log("removeProduct", removeProduct);
+      return { ...state, all: [...allProductsMinusFind, removeProduct] };
     }
 
     default: {

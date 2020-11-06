@@ -2,7 +2,6 @@ import Axios from "axios";
 import { API_URL } from "../../config";
 
 export function fetchAllProducts() {
-  //   console.log("HELLLOOOOOO");
   return async function thunk(dispatch, getState) {
     try {
       const res = await Axios.get(`${API_URL}/products`);
