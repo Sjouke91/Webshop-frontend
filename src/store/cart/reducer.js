@@ -3,8 +3,6 @@ const initialState = {
 };
 
 export default function cartReducer(state = initialState, action) {
-  console.log("payloadcart", action.payload);
-
   switch (action.type) {
     case "ADD_TO_CART": {
       const specificProduct = state.all.find((p) => {

@@ -32,7 +32,6 @@ export default function Products() {
     }
     return foundProduct.quantity;
   };
-  console.log("findQuantityById", findQuantityById(5));
 
   return (
     <div className="productPage">
@@ -51,9 +50,9 @@ export default function Products() {
                   <button onClick={(e) => onClickAddItem(p.id)}>
                     Add to cart
                     {findQuantityById(p.id) ? (
-                      <p>{findQuantityById(p.id)}</p>
+                      <span> ({findQuantityById(p.id)})</span>
                     ) : null}
-                  </button>
+                  </button>{" "}
                   {cartIds.includes(p.id) ? (
                     <button onClick={(e) => onClickRemoveItem(p.id)}>
                       Remove item
