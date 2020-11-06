@@ -1,8 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useHistory } from "react-router-dom";
+import { logout } from "../../store/auth/actions";
+import { selectUserName } from "../../store/auth/selectors";
 import "./NavBar.scss";
 
 export default function NavBar() {
+  const userName = useSelector(selectUserName);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   return (
     <div>
       <div className="NavBar">
@@ -26,6 +33,27 @@ export default function NavBar() {
         >
           Cart
         </NavLink>
+        <NavLink
+          className="navbar-login"
+          exact
+          to={userName ? "/" : "/login"}
+          activeStyle={{
+            fontWeight: "bold",
+          }}
+        >
+          {userName ? userName : "Login"}
+        </NavLink>
+        {userName ? (
+          <button
+            className="navbar-logout-button"
+            onClick={(e) => {
+              history.push("/");
+              return dispatch(logout);
+            }}
+          >
+            Logout
+          </button>
+        ) : null}
       </div>
     </div>
   );

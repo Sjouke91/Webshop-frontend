@@ -7,7 +7,7 @@ export default function productsReducer(state = initialState, action) {
 
   switch (action.type) {
     case "ADD_PRODUCTS": {
-      return { ...state, all: [...state.all, ...action.payload] };
+      return { ...state, all: [...action.payload] };
     }
 
     default: {

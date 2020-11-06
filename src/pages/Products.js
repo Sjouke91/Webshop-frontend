@@ -14,8 +14,10 @@ export default function Products() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchAllProducts());
-  }, [dispatch]);
+    if (!products.length) {
+      dispatch(fetchAllProducts());
+    }
+  }, [dispatch, products]);
 
   const onClickAddItem = (id) => {
     dispatch(addProductToCart(id));

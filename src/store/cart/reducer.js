@@ -15,15 +15,20 @@ export default function cartReducer(state = initialState, action) {
           all: [...state.all, { productId: action.payload, quantity: 1 }],
         };
       }
-      const allProductsMinusFind = state.all.filter((p) => {
-        return p.productId !== action.payload;
-      });
-      const addProduct = {
-        ...specificProduct,
-        quantity: specificProduct.quantity + 1,
-      };
 
-      return { ...state, all: [...allProductsMinusFind, addProduct] };
+      const updatedCart = state.all.map((p) =>
+        p.id === action.payload ? { ...p, quantity: p.quantity + 1 } : p
+      );
+      return { ...state, all: updatedCart };
+
+      // const allProductsMinusFind = state.all.filter((p) => {
+      //   return p.productId !== action.payload;
+      // });
+      // const addProduct = {
+      //   ...specificProduct,
+      //   quantity: specificProduct.quantity + 1,
+      // };
+      // return { ...state, all: [...allProductsMinusFind, addProduct] };
     }
 
     case "REMOVE_FROM_CART": {

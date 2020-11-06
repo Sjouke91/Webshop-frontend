@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
 import "./App.scss";
 import NavBar from "./components/NavBar/NavBar";
+import LoginPage from "./pages/LoginPage";
 import ProductPage from "./pages/ProductPage";
 import Products from "./pages/Products";
 import ShoppingCart from "./pages/ShoppingCart";
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route exact path="/shopping-cart">
           <ShoppingCart />
+        </Route>
+        <Route exact path="/login">
+          <LoginPage />
         </Route>
         <Route path="/" component={NotFound} />
       </Switch>
