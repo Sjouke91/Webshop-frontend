@@ -1,9 +1,30 @@
+import { Route, Switch } from "react-router-dom";
 import "./App.scss";
+import NavBar from "./components/NavBar/NavBar";
+import ProductPage from "./pages/ProductPage";
+import Products from "./pages/Products";
+import ShoppingCart from "./pages/ShoppingCart";
+
+const NotFound = () => {
+  return <h3>Oops, sorry. Page doesn't exist.</h3>;
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header"></header>
+      <NavBar />
+      <Switch>
+        <Route exact path="/">
+          <Products />
+        </Route>
+        <Route exact path="/products/:productId?">
+          <ProductPage />
+        </Route>
+        <Route exact path="/shopping-cart">
+          <ShoppingCart />
+        </Route>
+        <Route path="/" component={NotFound} />
+      </Switch>
     </div>
   );
 }
