@@ -36,7 +36,7 @@ export default function NavBar() {
         <NavLink
           className="navbar-login"
           exact
-          to={userName ? "/" : "/login"}
+          to={"/login"}
           activeStyle={{
             fontWeight: "bold",
           }}

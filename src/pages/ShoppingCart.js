@@ -11,13 +11,12 @@ export default function ShoppingCart() {
       <h1>Shopping cart page</h1>
       <div className="listOfProducts">
         {productsInCart.map((p) => {
-          console.log("this is p", p);
           return (
             <div className="cartItem">
               <p>{parseInt(p.quantity)}</p>
               <p>{p.name}</p>
-              <p>€ {parseInt(p.priceEuroCent / 100)}</p>
-              <p>{(p.priceEuroCent * p.quantity) / 100}</p>
+              <p>Price per item: € {parseInt(p.priceEuroCent / 100)}</p>
+              <p>Total for item: € {(p.priceEuroCent * p.quantity) / 100}</p>
             </div>
           );
         })}

@@ -48,6 +48,15 @@ const getUserProfile = (token) => async (dispatch, getState) => {
   }
 };
 
+export const bootstrapLoginState = () => async (dispatch, getState) => {
+  //   console.log("localStorage", localStorage);
+  if (localStorage.token) {
+    const token = localStorage.token;
+    dispatch(getUserProfile(token));
+  }
+  dispatch(logout);
+};
+
 export const logout = (dispatch, getState) => {
   dispatch({ type: "USER_LOGOUT" });
   localStorage.removeItem("token");
