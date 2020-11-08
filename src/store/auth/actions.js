@@ -52,7 +52,7 @@ export const bootstrapLoginState = () => async (dispatch, getState) => {
   //   console.log("localStorage", localStorage);
   if (localStorage.token) {
     const token = localStorage.token;
-    dispatch(getUserProfile(token));
+    return dispatch(getUserProfile(token));
   }
   dispatch(logout);
 };
