@@ -48,6 +48,7 @@ export default function Products() {
                 <h3>{p.name}</h3>
                 <p>{p.description}</p>
                 <img alt={p.name} src={p.imageUrl} />
+                <p>€ {p.priceEuroCent / 100}</p>
                 <div className="buttons">
                   <button onClick={(e) => onClickAddItem(p.id)}>
                     Add to cart
