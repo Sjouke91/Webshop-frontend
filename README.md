@@ -4,6 +4,7 @@
 This app was made by Sjouke Bosma and Thomas Kraak during their Codaisseur academy. We built the front- and back-end from scratch as a practice assignment.
 
 You can add products to your cart and see the total amount in the cart.
+[See back-end here](https://github.com/TSKraak/webshop)
 
 ## Technologies and concepts
 
